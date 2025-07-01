@@ -1,0 +1,13 @@
+header {
+    display: flex;
+    flex-direction: row;
+
+    img {
+        height: 5rem;
+    }
+}
+
+#encabezadoProductos {
+    text-align: left;
+    
+}
