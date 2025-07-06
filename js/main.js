@@ -1,3 +1,19 @@
+const url = "http://localhost:3000";
+
+async function obtenerPeliculas() {
+    try {
+
+        let respuesta = await fetch (`${url}/peliculas`);
+        let datos = await respuesta.json();
+
+        console.log(datos)
+        console.table(datos.payload)
+
+    } catch (error) {
+        console.error("Error:", error)
+    } 
+}
+
 // Recibe el nombre de la primera pantalla y lo guarda en el localStorage
 function guardarNombre() {
     const nombre = document.getElementById("nombreInput").value.trim();
@@ -18,6 +34,8 @@ function mostrarNombre(nombre) {
     document.querySelector(".seccion-input-nombre").style.display = "none";
     document.querySelector(".contenedor-principal").style.display = "block";
     document.querySelector(".imagen-inicio h1").textContent = `HOLA, ${nombre.toUpperCase()}!`;
+    document.querySelector("nav").style.display = "block";
+    document.querySelector("footer").style.display = "block";
 }
 
 // Borra el nombre del localStorage
@@ -33,14 +51,24 @@ function chequearUsuarioLogueado() {
     }
 }
 
-// Muestra nuestros datos por consola
-function imprimirDatosAlumno() {
-    console.log();
+// Borra el nombre y carrito y vuelve al inicio
+function volverAEmpezar() {
+    borrarNombre();
+    // DESPUES AGREGAR FUNCION PARA BORRAR CARRITO
+    window.location.href = "index.html";
 }
 
+// Muestra nuestros datos por consola
+function imprimirDatosAlumno() {
+    console.log("TP hecho por Leandro Podestá y Lucas Iusef 😄");
+}
+
+
+
 function init() {
-    // borrarNombre();
-    chequearUsuarioLogueado()
+    chequearUsuarioLogueado();
+    obtenerPeliculas();
+    imprimirDatosAlumno();
 }
 
 init()

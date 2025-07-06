@@ -4,7 +4,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP Final - Cine</title>
+    <title>TP Final - CinePlanet</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
 
@@ -26,6 +26,10 @@
         <a href="index.html">
             <img src="assets/img/logo.png" alt="Logo" class="logo">
         </a>
+        
+        <nav style="display: none;">
+            <p>Hola!</p>
+        </nav>
 
     </header>
 
@@ -54,22 +58,28 @@
             <div class="card-pelicula-obra">
                 <img src="https://m.media-amazon.com/images/I/A1PaCX4oXjL._AC_SL1500_.jpg" alt="">
                 <h4>BLACK PANTHER</h4>
+                <p class="precio">$7500</p>
                 <p>ACCIÓN | 135 MINS</p>
                 <p>RYAN COOGLER, 2018</p>
+                <button onclick="agregarAlCarrito()">AGREGAR TICKET</button>
             </div>
 
             <div class="card-pelicula-obra">
                 <img src="https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_SL1351_.jpg" alt="">
                 <h4>JOKER</h4>
+                <p class="precio">$8500</p>
                 <p>SUSPENSO | 122 MINS</p>
                 <p>TODD PHILLIPS, 2019 </p>
+                <button onclick="agregarAlCarrito()">AGREGAR TICKET</button>
             </div>
 
             <div class="card-pelicula-obra">
                 <img src="https://i5.walmartimages.com/asr/deaf2e49-0946-4bae-996a-befc2d602ba1.13a380cc3fd906e3d918e67b593e138a.jpeg" alt="">
                 <h4>STAR WARS: ROGUE ONE</h4>
+                <p class="precio">$6000</p>
                 <p>CIENCIA FICCIÓN | 133 MINS</p>
                 <p>GARETH EDWARDS, 2016</p>
+                <button onclick="agregarAlCarrito()">AGREGAR TICKET</button>
             </div>
         </div>
     </section>
@@ -78,10 +88,43 @@
         <h2>PARA ACOMPAÑAR <span style="font-weight: 400; color: #a9a9a9">COMBOS Y PROMOCIONES</span></h2>
         <div class="contenedor-productos">
             <!-- Se va a llenar dinamicamente en el futuro -->
+            <div class="card-producto">
+                <img src="https://m.media-amazon.com/images/I/A1PaCX4oXjL._AC_SL1500_.jpg" alt="">
+                <h4>COMBO POCHOCLOS/COCA</h4>
+                <p class="precio">$5000</p>
+                <p class="categoria">COMBO</p>
+                <button onclick="agregarAlCarrito()">AGREGAR PRODUCTO</button>
+            </div>
+
+            <div class="card-producto">
+                <img src="https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_SL1351_.jpg" alt="">
+                <h4>POCHOCLOS</h4>
+                <p class="precio">$5000</p>
+                <p class="categoria">COMIDA</p>
+                <button onclick="agregarAlCarrito()">AGREGAR PRODUCTO</button>
+            </div>
+
+            <div class="card-producto">
+                <img src="https://i5.walmartimages.com/asr/deaf2e49-0946-4bae-996a-befc2d602ba1.13a380cc3fd906e3d918e67b593e138a.jpeg" alt="">
+                <h4>COCA-COLA</h4>
+                <p class="precio">$5000</p>
+                <p class="categoria">BEBIDA</p>
+                <button onclick="agregarAlCarrito()">AGREGAR PRODUCTO</button>
+            </div>
         </div>
     </section>
 
     </main>
+
+    <!-- Footer -->
+    <footer style="display: none;">
+
+        <div class="footer">
+            <button onclick="volverAEmpezar()">VOLVER ATRAS</button>
+            <a href="carrito.html">CONTINUAR</a>
+        </div>
+
+    </footer>
 
 </body>
 </html>
