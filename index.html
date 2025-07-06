@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Final - Cine</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,100..1000&display=swap" rel="stylesheet">
+
+    <!-- JS -->
+    <script defer src="js/main.js"></script>
+
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <a href="index.html">
+            <img src="assets/img/logo.png" alt="Logo" class="logo">
+        </a>
+
+    </header>
+
+    <!-- Input Nombre -->
+    <section class="seccion-input-nombre" >
+        <div class="contenedor-input">
+            <h3>BIENVENIDO!<br>
+            CUAL ES TU NOMBRE?</h3>
+            <input type="text" id="nombreInput" placeholder="NOMBRE">
+            <button onclick="guardarNombre()">CONTINUAR</button>
+            <p id="advertencia-nombre" ></p>
+        </div>
+    </section>
+
+    <!-- Contenedor Principal -->
+    <main class="contenedor-principal" style="display: none;">
+
+    <div class="imagen-inicio">
+        <h1>HOLA!</h1>
+    </div>
+
+    <section class="seccion-peliculas-obras">
+        <h2>EN CARTELERA <span style="font-weight: 400; color: #a9a9a9">SOLO POR 30 DIAS</span></h2>
+        <div class="contenedor-peliculas-obras">
+            <!-- Se va a llenar dinamicamente en el futuro, mientras unos de prueba -->
+            <div class="card-pelicula-obra">
+                <img src="https://m.media-amazon.com/images/I/A1PaCX4oXjL._AC_SL1500_.jpg" alt="">
+                <h4>BLACK PANTHER</h4>
+                <p>ACCIÓN | 135 MINS</p>
+                <p>RYAN COOGLER, 2018</p>
+            </div>
+
+            <div class="card-pelicula-obra">
+                <img src="https://m.media-amazon.com/images/I/71KPOvu-hOL._AC_SL1351_.jpg" alt="">
+                <h4>JOKER</h4>
+                <p>SUSPENSO | 122 MINS</p>
+                <p>TODD PHILLIPS, 2019 </p>
+            </div>
+
+            <div class="card-pelicula-obra">
+                <img src="https://i5.walmartimages.com/asr/deaf2e49-0946-4bae-996a-befc2d602ba1.13a380cc3fd906e3d918e67b593e138a.jpeg" alt="">
+                <h4>STAR WARS: ROGUE ONE</h4>
+                <p>CIENCIA FICCIÓN | 133 MINS</p>
+                <p>GARETH EDWARDS, 2016</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="seccion-productos">
+        <h2>PARA ACOMPAÑAR <span style="font-weight: 400; color: #a9a9a9">COMBOS Y PROMOCIONES</span></h2>
+        <div class="contenedor-productos">
+            <!-- Se va a llenar dinamicamente en el futuro -->
+        </div>
+    </section>
+
+    </main>
+
+</body>
+</html>
