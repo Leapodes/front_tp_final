@@ -263,3 +263,13 @@ header .logo {
     background-color: #a1151f;
     border: #a1151f;;
 }
+
+#carrito {
+    display: flex;
+    flex-direction: column;
+
+    .card-elemento-carrito {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
