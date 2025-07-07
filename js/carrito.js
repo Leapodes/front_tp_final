@@ -1,12 +1,13 @@
+// Obtengo desde la funcion el carrito para poder operar con las peliculas
 function obtenerCarritoPeliculas() {
     let carritoPeliculas = localStorage.getItem('cine-peliculas');
     if(carritoPeliculas) {
         carritoPeliculas = JSON.parse(carritoPeliculas);
     };
     return carritoPeliculas;
-}
+};
 
-
+// Obtengo desde la funcion el carrito para poder operar con los productos
 function obtenerCarritoProductos() {
     let carritoProductos = localStorage.getItem('cine-productos');
     
@@ -15,11 +16,11 @@ function obtenerCarritoProductos() {
     };
     return carritoProductos;
 };
-
+// Se guarda desde el nombre en el parametro y carrito donde uso el stringify para poner por string el carrito
 function guardarCarrito(nombre, carrito) {
     localStorage.setItem(nombre, JSON.stringify(carrito));    
 };
-
+// Desde las funciones ya hechas las guardamos en una variable para despues recorrerlas por cada elemento (tanto en peliculas como productos)
 function mostrarCarrito() {
     let productos = obtenerCarritoProductos();
     let peliculas = obtenerCarritoPeliculas();
@@ -30,7 +31,7 @@ function mostrarCarrito() {
                 <h4>${elemento.nombre}</h4>
                 <p class="precio">$${elemento.precio}</p>
                 <p class="cantidad">${elemento.cantidad}</p>
-                <button onclick="sacarPeliDelCarrito(${elemento.id})">-</button>
+                <button onclick="sacarPeliDelCarrito(${elemento.id})">QUITAR</button>
             </div>`
     })
 
@@ -45,8 +46,8 @@ function mostrarCarrito() {
 
     document.getElementById('carrito').innerHTML = htmlCarrito;
     calcularTotalCarrito();
-}
-
+};
+// Borrar pelicula desde la funcion ya guardada anteriormente poniendola en una variable. Si es mayor a una unidad como dato minimo se descuenta una
 function sacarPeliDelCarrito(id_pelicula) {
     let carrito = obtenerCarritoPeliculas();
 
@@ -59,8 +60,8 @@ function sacarPeliDelCarrito(id_pelicula) {
     }
     guardarCarrito("cine-peliculas", carrito);
     mostrarCarrito();
-}
-
+};
+// Borrar producto desde la funcion ya guardada anteriormente poniendola en una variable. Si es mayor a una unidad como dato minimo se descuenta una
 function sacarProdDelCarrito(id_producto) {
     let carrito = obtenerCarritoProductos();
     
@@ -73,8 +74,8 @@ function sacarProdDelCarrito(id_producto) {
     }
     guardarCarrito("cine-productos", carrito);
     mostrarCarrito();
-}
-
+};
+// Se calcula mediante a los carritos obtenidos desde las funciones anteriores en variables multiplicando la cantidad por el precio
 function calcularTotalCarrito() {
     let peliculas = obtenerCarritoPeliculas();
     let productos = obtenerCarritoProductos();
@@ -84,6 +85,6 @@ function calcularTotalCarrito() {
         total += elemento.precio * elemento.cantidad;
     })
     document.getElementById('total-carrito').innerText = total;
-}
+};
 
 mostrarCarrito();
