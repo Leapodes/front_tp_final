@@ -17,12 +17,58 @@
     <script defer src="js/carrito.js"></script>
 
 </head>
-<body>
-    <div id="carrito">
 
-    </div>
-    <div>
-        <h2>Total: <span id="total-carrito"></span></h2>
-    </div>
+<body>
+
+    <!-- Header -->
+    <header>
+
+        <a href="index.html">
+            <img src="assets/img/logo.png" alt="Logo" class="logo">
+        </a>
+        
+        <nav>
+            <div class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="cartelera.html">Cartelera</a>
+                <a href="productos.html">Productos</a>
+                <a href="carrito.html">Carrito</a>
+                <button id="btn-cambiar-tema" onclick="cambiarTema()">
+                    <img src="assets/img/tema_oscuro2.png" alt="Cambiar Tema" id="icono-tema">
+                </button>
+            </div>
+        </nav>
+
+    </header>
+    
+    <!-- Carrito -->
+    <main>
+
+        <section class="seccion-carrito">
+
+            <div id="carrito">
+    
+            </div>
+
+            <h2>TOTAL: $<span id="total-carrito"></span></h2>
+            <div class="botones-carrito">
+                <button onclick="vaciarCarritoYMostrar()">VACIAR CARRITO</button>
+            </div>
+            
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer">
+            <a href="index.html">VOLVER</a>
+            <button id="btn-pagar" onclick="popUpPagar()">PAGAR</button>
+        </div>
+
+    </footer>
+
 </body>
 </html>

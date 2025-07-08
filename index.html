@@ -28,7 +28,15 @@
         </a>
         
         <nav style="display: none;">
-            <p>Hola!</p>
+            <div class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="cartelera.html">Cartelera</a>
+                <a href="productos.html">Productos</a>
+                <a href="carrito.html">Carrito</a>
+                <button id="btn-cambiar-tema" onclick="cambiarTema()">
+                    <img src="assets/img/tema_oscuro2.png" alt="Cambiar Tema" id="icono-tema">
+                </button>
+            </div>
         </nav>
 
     </header>
@@ -39,7 +47,7 @@
             <h3>BIENVENIDO!<br>
             CUAL ES TU NOMBRE?</h3>
             <input type="text" id="nombreInput" placeholder="NOMBRE">
-            <button onclick="guardarNombre()">CONTINUAR</button>
+            <button id="btn-guardar-nombre" onclick="guardarNombre()">CONTINUAR</button>
             <p id="advertencia-nombre" ></p>
         </div>
     </section>
@@ -47,38 +55,23 @@
     <!-- Contenedor Principal -->
     <main class="contenedor-principal" style="display: none;">
 
-    <div class="imagen-inicio">
-        <h1>HOLA!</h1>
-    </div>
-
-    <section class="seccion-peliculas-obras">
-        <h2>EN CARTELERA <span style="font-weight: 400; color: #a9a9a9">SOLO POR 30 DIAS</span></h2>
-        <div class="contenedor-peliculas-obras">
-            <!-- Se va a llenar dinamicamente en el futuro, mientras unos de prueba -->
-            <!-- <div class="card-pelicula-obra">
-                <img src="https://m.media-amazon.com/images/I/A1PaCX4oXjL._AC_SL1500_.jpg" alt="">
-                <h4>BLACK PANTHER</h4>
-                <p class="precio">$7500</p>
-                <p>ACCIÓN | 135 MINS</p>
-                <p>RYAN COOGLER, 2018</p>
-                <button onclick="agregarAlCarrito()">AGREGAR TICKET</button>
-            </div> -->
+        <div class="imagen-inicio">
+            <h1>HOLA!</h1>
         </div>
-    </section>
 
-    <section class="seccion-productos">
-        <h2>PARA ACOMPAÑAR <span style="font-weight: 400; color: #a9a9a9">COMBOS Y PROMOCIONES</span></h2>
-        <div class="contenedor-productos">
-            <!-- Se va a llenar dinamicamente en el futuro -->
-            <!-- <div class="card-producto">
-                <img src="https://m.media-amazon.com/images/I/A1PaCX4oXjL._AC_SL1500_.jpg" alt="">
-                <h4>COMBO POCHOCLOS/COCA</h4>
-                <p class="precio">$5000</p>
-                <p class="categoria">COMBO</p>
-                <button onclick="agregarAlCarrito()">AGREGAR PRODUCTO</button>
-            </div> -->
-        </div>
-    </section>
+        <section class="seccion-peliculas-obras">
+            <h2>EN CARTELERA <span style="font-weight: 400; color: #a9a9a9">SOLO POR 30 DIAS</span></h2>
+            <div class="contenedor-peliculas-obras">
+                <!-- Se va a llenar dinamicamente -->
+            </div>
+        </section>
+
+        <section class="seccion-productos">
+            <h2>PARA ACOMPAÑAR <span style="font-weight: 400; color: #a9a9a9">COMBOS Y PROMOCIONES</span></h2>
+            <div class="contenedor-productos">
+                <!-- Se va a llenar dinamicamente -->
+            </div>
+        </section>
 
     </main>
 
@@ -86,7 +79,7 @@
     <footer style="display: none;">
 
         <div class="footer">
-            <button onclick="volverAEmpezar()">VOLVER ATRAS</button>
+            <button id="btn-volver-a-empezar" onclick="volverAEmpezar()">VOLVER ATRAS</button>
             <a href="carrito.html">CONTINUAR</a>
         </div>
 

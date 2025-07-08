@@ -48,7 +48,7 @@ function mostrarNombre(nombre) {
     document.querySelector(".seccion-input-nombre").style.display = "none";
     document.querySelector(".contenedor-principal").style.display = "block";
     document.querySelector(".imagen-inicio h1").textContent = `HOLA, ${nombre.toUpperCase()}!`;
-    document.querySelector("nav").style.display = "block";
+    document.querySelector("nav").style.display = "flex";
     document.querySelector("footer").style.display = "block";
 }
 
@@ -68,7 +68,7 @@ function chequearUsuarioLogueado() {
 // Borra el nombre y carrito y vuelve al inicio
 function volverAEmpezar() {
     borrarNombre();
-    // DESPUES AGREGAR FUNCION PARA BORRAR CARRITO
+    borrarCarrito();
     window.location.href = "index.html";
 }
 
@@ -77,14 +77,16 @@ function volverAEmpezar() {
 function mostrarPeliculas(peliculas) {
     let htmlpeliculas = "";
     peliculas.forEach(pelicula => {
-        htmlpeliculas += `<div class="card-pelicula-obra">
-                <img src="${pelicula.imagen}" alt="">
-                <h4>${pelicula.nombre}</h4>
-                <p class="precio">$${pelicula.precio}</p>
-                <p>${pelicula.genero} | ${pelicula.duracion} MINS</p>
-                <p>${pelicula.director}, ${pelicula.anio}</p>
-                <button onclick="agregarPeliculaAlCarrito(${pelicula.id})">AGREGAR TICKET</button>
-            </div>`     
+        if (pelicula.activo) {
+            htmlpeliculas += `<div class="card-pelicula-obra">
+                    <img src="${pelicula.imagen}" alt="">
+                    <h4>${pelicula.nombre}</h4>
+                    <p class="precio">$${pelicula.precio}</p>
+                    <p>${pelicula.genero} | ${pelicula.duracion} MINS</p>
+                    <p>${pelicula.director}, ${pelicula.anio}</p>
+                    <button onclick="agregarPeliculaAlCarrito(${pelicula.id})">AGREGAR TICKET</button>
+                </div>`
+        }   
     });
 
     document.querySelector('.contenedor-peliculas-obras').innerHTML = htmlpeliculas;
@@ -95,13 +97,15 @@ function mostrarPeliculas(peliculas) {
 function mostrarProductos(productos) {
     let htmlproductos = "";
     productos.forEach(producto => {
-        htmlproductos += `<div class="card-producto">
-                <img src="${producto.imagen}" alt="">
-                <h4>${producto.nombre}</h4>
-                <p class="precio">$${producto.precio}</p>
-                <p class="categoria">${producto.categoria}</p>
-                <button onclick="agregarProductoAlCarrito(${producto.id})">AGREGAR PRODUCTO</button>
-            </div>`     
+        if (producto.activo) {
+            htmlproductos += `<div class="card-producto">
+                    <img src="${producto.imagen}" alt="">
+                    <h4>${producto.nombre}</h4>
+                    <p class="precio">$${producto.precio}</p>
+                    <p class="categoria">${producto.categoria}</p>
+                    <button onclick="agregarProductoAlCarrito(${producto.id})">AGREGAR PRODUCTO</button>
+                </div>`
+        }
     });
 
     document.querySelector('.contenedor-productos').innerHTML = htmlproductos;
@@ -154,6 +158,11 @@ async function agregarPeliculaAlCarrito(id_pelicula) {
 }
 
 
+function borrarCarrito() {
+    localStorage.removeItem("cine-productos");
+    localStorage.removeItem("cine-peliculas");
+}
+
 // Muestra nuestros datos por consola
 function imprimirDatosAlumno() {
     console.log("TP hecho por Leandro Podestá y Lucas Iusef 😄");
@@ -165,8 +174,10 @@ async function init() {
     chequearUsuarioLogueado();
     imprimirDatosAlumno();
 
+    // Pelis y productos
     let productos = await obtenerProductos();
     let peliculas = await obtenerPeliculas();
+    
     mostrarPeliculas(peliculas)    
     mostrarProductos(productos);
 }

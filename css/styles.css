@@ -17,7 +17,7 @@ h1, h2, h3, h4, p {
 header {
     display: flex;
     justify-content: space-between;
-    background-color: #0b1215;
+    background-color: #181d25;
     padding: 10px 120px 10px 120px;
 }
 
@@ -26,6 +26,33 @@ header .logo {
     width: auto;
 }
 
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav a, .nav button {
+    color: white;
+    text-decoration: none;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.nav a:hover, .nav button:hover {
+    font-weight: 700;
+}
 
 
 /* Input Nombre */
@@ -227,10 +254,11 @@ header .logo {
 }
 
 
+
 /* Footer */
 .footer {
     display: flex;
-    background-color: #212730;
+    background-color: #181d25;
     align-items: center;
     justify-content: center;
 }
@@ -245,7 +273,7 @@ header .logo {
     padding: 0px;
     margin: 20px 30px 20px 30px;
     color: white;
-    background-color: #212730;
+    background-color: #181d25;
     border: 2px solid #f3202d;
     border-radius: 4px;
     cursor: pointer;
@@ -264,12 +292,141 @@ header .logo {
     border: #a1151f;;
 }
 
+.footer #btn-pagar {
+    background-color: #f3202d;
+    border: 2px solid #f3202d;
+}
+
+.footer #btn-pagar:hover {
+    background-color: #a1151f;
+    border: #a1151f;;
+}
+
+
+
+/* Carrito */
+.seccion-carrito {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 120px 10px 120px;
+}
 #carrito {
     display: flex;
     flex-direction: column;
+}
+.card-elemento-carrito {
+    display: grid;
+    grid-template-columns: 50% 20% 20% 10%;
+    align-items: center;
+}
 
-    .card-elemento-carrito {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-    }
+.card-elemento-carrito > :nth-child(4n + 1) {
+    justify-self: start;
+}
+.card-elemento-carrito > :nth-child(4n + 2) {
+    justify-self: end;
+}
+.card-elemento-carrito > :nth-child(4n + 3),
+.card-elemento-carrito > :nth-child(4n + 4) {
+    justify-self: center;
+}
+
+.card-elemento-carrito .btn-eliminar,
+.card-elemento-carrito .btn-sumar {
+    display: flex;
+    height: 30px;
+    width: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    margin: 12px 20px 0px 0px;
+    color: white;
+    background-color: #0b1215;
+    border: 1px solid #f3202d;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 1000;
+}
+
+.card-elemento-carrito .btn-eliminar:hover,
+.card-elemento-carrito .btn-sumar:hover {
+    background-color: #a1151f;
+    border: #a1151f;;
+}
+
+.botones-carrito {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.botones-carrito button {
+    display: flex;
+    height: 40px;
+    width: 160px;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    margin: 0px 20px;
+    color: white;
+    background-color: #0b1215;
+    border: 1px solid #f3202d;
+    border-radius: 3px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.botones-carrito button:hover {
+    background-color: #a1151f;
+    border: #a1151f;;
+}
+
+
+
+/* Popup Confirmación */
+.popup-confirmacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 18, 21, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.popup-contenido {
+    background-color: #181d25;
+    border: 2px solid #f3202d;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    font-family: "DM Sans", Arial, sans-serif;
+    font-size: 24px;
+}
+
+.popup-botones {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.popup-botones button {
+    background-color: #f3202d;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 4px;
+    min-width: 100px;
+}
+
+.popup-botones button:hover {
+    background-color: #a1151f;
 }
