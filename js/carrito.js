@@ -108,7 +108,7 @@ function sumarProdAlCarrito(id_producto) {
     mostrarCarrito();
 }
 
-
+// Calcula el total del carrito (suma todos los productos * su cantidad)
 function calcularTotalCarrito() {
     let peliculas = obtenerCarritoPeliculas();
     let productos = obtenerCarritoProductos();
@@ -126,6 +126,7 @@ function vaciarCarritoYMostrar() {
     mostrarCarrito();
 }
 
+// Muestra el pop up de confirmacion y despues reinicia el sistema
 function popUpPagar() {
 
     let carritoPeliculas = JSON.parse(localStorage.getItem('cine-peliculas') || "[]");
@@ -165,6 +166,7 @@ function popUpPagar() {
     };
 }
 
+// Funciones chiquitas de ayuda
 function volverAEmpezar() {
     borrarNombre();
     borrarCarrito();
@@ -180,6 +182,7 @@ function borrarNombre() {
     localStorage.removeItem("usuarioNombre");
 }
 
+// Cambiar el tema
 function cambiarTema() {
     cambiarTemaLocalStorage();
     mostrarTema(localStorage.getItem("tema"));
@@ -209,6 +212,7 @@ function mostrarTema(tema) {
     }
 }
 
+// INIT
 function init() {
     mostrarTema(localStorage.getItem("tema"));
     mostrarCarrito();

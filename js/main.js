@@ -1,5 +1,12 @@
 const url = "http://localhost:3000";
 
+// Carrusel
+let peliculasPage = 0;
+let productosPage = 0;
+const ITEMS_PER_PAGE = 6;
+let peliculasData = [];
+let productosData = [];
+
 // Obtengo peliculas desde la url de peliculas para que me de la informacion 
 async function obtenerPeliculas() {
     try {
@@ -74,13 +81,6 @@ function volverAEmpezar() {
     window.location.href = "index.html";
 }
 
-// Carrusel
-let peliculasPage = 0;
-let productosPage = 0;
-const ITEMS_PER_PAGE = 6;
-let peliculasData = [];
-let productosData = [];
-
 // Muestra las peliculas en relacion a la bdd y las obtiene
 function mostrarPeliculas(peliculas, page = 0) {
     peliculasData = peliculas;
@@ -128,6 +128,7 @@ function mostrarProductos(productos, page = 0) {
     actualizarBotonesProductos();
 };
 
+// Funciones del carrusel 🙏🙏🙏
 function actualizarBotonesPeliculas() {
     const prev = document.getElementById('peliculas-prev');
     const next = document.getElementById('peliculas-next');
@@ -241,6 +242,7 @@ async function init() {
     setupCarouselListeners();
 }
 
+// Funciones para cambiar el tema
 function cambiarTema() {
     cambiarTemaLocalStorage();
     mostrarTema(localStorage.getItem("tema"));
@@ -270,4 +272,5 @@ function mostrarTema(tema) {
     }
 }
 
+// INIT
 init()

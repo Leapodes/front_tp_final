@@ -580,3 +580,7 @@ body.light-theme .popup-botones button {
 body.light-theme .popup-botones button:hover {
     background-color: #a1151f;
 }
+
+body.light-theme footer #btn-pagar {
+    color: #ffffff;
+}
