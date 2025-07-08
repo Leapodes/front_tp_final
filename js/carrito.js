@@ -1,4 +1,4 @@
-// Funciones para obtener los carritos
+// Obtengo desde la funcion el carrito para poder operar con las peliculas
 function obtenerCarritoPeliculas() {
     let carritoPeliculas = localStorage.getItem('cine-peliculas');
     if(carritoPeliculas) {
@@ -7,9 +7,9 @@ function obtenerCarritoPeliculas() {
         carritoPeliculas = [];
     }
     return carritoPeliculas;
-}
+};
 
-
+// Obtengo desde la funcion el carrito para poder operar con los productos
 function obtenerCarritoProductos() {
     let carritoProductos = localStorage.getItem('cine-productos');
     
@@ -21,12 +21,12 @@ function obtenerCarritoProductos() {
     return carritoProductos;
 };
 
-// Funcion para guardar el carrito en localStorage
+// Se guarda desde el nombre en el parametro y carrito donde uso el stringify para poner por string el carrito
 function guardarCarrito(nombre, carrito) {
     localStorage.setItem(nombre, JSON.stringify(carrito));    
 };
 
-// Mostrar el carrito en pantalla
+// Desde las funciones ya hechas las guardamos en una variable para despues recorrerlas por cada elemento (tanto en peliculas como productos)
 function mostrarCarrito() {
     let productos = obtenerCarritoProductos();
     let peliculas = obtenerCarritoPeliculas();
@@ -52,9 +52,9 @@ function mostrarCarrito() {
 
     document.getElementById('carrito').innerHTML = htmlCarrito;
     calcularTotalCarrito();
-}
+};
 
-// Sacar una pelicula del carrito
+// Borrar pelicula desde la funcion ya guardada anteriormente poniendola en una variable. Si es mayor a una unidad como dato minimo se descuenta una
 function sacarPeliDelCarrito(id_pelicula) {
     let carrito = obtenerCarritoPeliculas();
 

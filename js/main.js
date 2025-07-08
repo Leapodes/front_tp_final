@@ -1,5 +1,6 @@
 const url = "http://localhost:3000";
 
+// Obtengo peliculas desde la url de peliculas para que me de la informacion 
 async function obtenerPeliculas() {
     try {
 
@@ -14,6 +15,7 @@ async function obtenerPeliculas() {
     }
 };
 
+// Obtengo productos desde la url de productos para que me de la informacion
 async function obtenerProductos() {
     try {
 
@@ -111,7 +113,7 @@ function mostrarProductos(productos) {
     document.querySelector('.contenedor-productos').innerHTML = htmlproductos;
 };
 
-
+// Se consigue el carrito parseando para empezar a utilizarlo y contar las peliculas y productos
 function obtenerCarrito(nombre) {
     let carrito = localStorage.getItem(nombre);
     if(carrito) {
@@ -120,11 +122,11 @@ function obtenerCarrito(nombre) {
     };
     return [];
 };
-
+// Opcion de guardado desde el nombre y carrito en la funcion anterior con funcion de stringify para pasar de Json a variable 
 function guardarCarrito(nombre, carrito) {
     localStorage.setItem(nombre, JSON.stringify(carrito));    
 };
-
+// Agregar al carrito ya construido los productos desde el id (productos) e igualarlos para que lo cuente cuando lo sumemos
 async function agregarProductoAlCarrito(id_producto) {
     let carrito = obtenerCarrito("cine-productos");
     let productos = await obtenerProductos();
@@ -141,6 +143,7 @@ async function agregarProductoAlCarrito(id_producto) {
     guardarCarrito("cine-productos", carrito);
 };
 
+// Agregar al carrito ya construido los productos desde el id (peliculas) e igualarlos para que lo cuente cuando lo sumemos
 async function agregarPeliculaAlCarrito(id_pelicula) {
     let carrito = obtenerCarrito("cine-peliculas");
     let peliculas = await obtenerPeliculas();
@@ -169,7 +172,7 @@ function imprimirDatosAlumno() {
 }
 
 
-//funcion para inicializar todas las funciones
+// Funcion para inicializar todas las funciones
 async function init() {
     chequearUsuarioLogueado();
     imprimirDatosAlumno();
