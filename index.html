@@ -30,9 +30,8 @@
         <nav style="display: none;">
             <div class="nav">
                 <a href="index.html">Inicio</a>
-                <a href="cartelera.html">Cartelera</a>
-                <a href="productos.html">Productos</a>
                 <a href="carrito.html">Carrito</a>
+                <a href="http://localhost:3000/dashboard/admin">Dashboard</a>
                 <button id="btn-cambiar-tema" onclick="cambiarTema()">
                     <img src="assets/img/tema_oscuro2.png" alt="Cambiar Tema" id="icono-tema">
                 </button>
@@ -61,15 +60,23 @@
 
         <section class="seccion-peliculas-obras">
             <h2>EN CARTELERA <span style="font-weight: 400; color: #a9a9a9">SOLO POR 30 DIAS</span></h2>
-            <div class="contenedor-peliculas-obras">
-                <!-- Se va a llenar dinamicamente -->
+            <div class="carousel-controls">
+                <button id="peliculas-prev" class="carousel-btn">&#8592;</button>
+                <div class="contenedor-peliculas-obras">
+                    <!-- Se va a llenar dinamicamente -->
+                </div>
+                <button id="peliculas-next" class="carousel-btn">&#8594;</button>
             </div>
         </section>
 
         <section class="seccion-productos">
             <h2>PARA ACOMPAÑAR <span style="font-weight: 400; color: #a9a9a9">COMBOS Y PROMOCIONES</span></h2>
-            <div class="contenedor-productos">
-                <!-- Se va a llenar dinamicamente -->
+            <div class="carousel-controls">
+                <button id="productos-prev" class="carousel-btn">&#8592;</button>
+                <div class="contenedor-productos">
+                    <!-- Se va a llenar dinamicamente -->
+                </div>
+                <button id="productos-next" class="carousel-btn">&#8594;</button>
             </div>
         </section>
 

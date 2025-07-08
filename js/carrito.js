@@ -180,5 +180,38 @@ function borrarNombre() {
     localStorage.removeItem("usuarioNombre");
 }
 
-mostrarCarrito();
+function cambiarTema() {
+    cambiarTemaLocalStorage();
+    mostrarTema(localStorage.getItem("tema"));
+};
 
+function cambiarTemaLocalStorage() {
+    temaActual = localStorage.getItem("tema");
+    if (!temaActual || temaActual === "oscuro") {
+        localStorage.setItem("tema", "claro");
+    } else {
+        localStorage.setItem("tema", "oscuro");
+    }
+}
+
+function mostrarTema(tema) {
+    const body = document.body;
+    const logo = document.querySelector('header .logo');
+    const iconoTema = document.getElementById("icono-tema");
+    if (tema === "claro") {
+        body.classList.add("light-theme");
+        if (logo) logo.src = "assets/img/logo_gris.png";
+        if (iconoTema) iconoTema.src = "assets/img/tema_claro2.png";
+    } else {
+        body.classList.remove("light-theme");
+        if (logo) logo.src = "assets/img/logo.png";
+        if (iconoTema) iconoTema.src = "assets/img/tema_oscuro2.png";
+    }
+}
+
+function init() {
+    mostrarTema(localStorage.getItem("tema"));
+    mostrarCarrito();
+}
+
+init();
